@@ -173,7 +173,7 @@ If our work is useful for your research, please consider citing:
   title={PhotoMaker: Customizing Realistic Human Photos via Stacked ID Embedding},
   author={Li, Zhen and Cao, Mingdeng and Wang, Xintao and Qi, Zhongang and Cheng, Ming-Ming and Shan, Ying},
   booktitle={IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2023}
+  year={2024}
 }
 ```
 📋 **License**
