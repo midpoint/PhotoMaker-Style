@@ -169,10 +169,10 @@ If PhotoMaker is helpful, please help to ⭐ the <a href='https://github.com/Ten
 If our work is useful for your research, please consider citing:
 
 ```bibtex
-@article{li2023photomaker,
+@inproceedings{li2023photomaker,
   title={PhotoMaker: Customizing Realistic Human Photos via Stacked ID Embedding},
   author={Li, Zhen and Cao, Mingdeng and Wang, Xintao and Qi, Zhongang and Cheng, Ming-Ming and Shan, Ying},
-  booktitle={arXiv preprint arxiv:2312.04461},
+  booktitle={IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
   year={2023}
 }
 ```
