@@ -16,15 +16,16 @@ from style_template import styles
 # Download civitai models
 civitai_model_path = "./civitai_models"
 os.makedirs(civitai_model_path, exist_ok=True)
+
 base_model_name = "sdxlUnstableDiffusers_v11.safetensors"
 base_model_path = os.path.join(civitai_model_path, base_model_name)
 if not os.path.exists(base_model_path):
-    base_model_path = hf_hub_download(repo_id="Paper99/sdxlUnstableDiffusers_v11", filename=base_model_name, repo_type="model")
+    base_model_path = hf_hub_download(repo_id="frankjoshua/sdxlUnstableDiffusers_v11", filename=base_model_name, repo_type="model")
 
-lora_model_name = "xl_more_art-full.safetensors"
+lora_model_name = "xl_more_art-full_v1.safetensors"
 lora_path = os.path.join(civitai_model_path, lora_model_name)
 if not os.path.exists(lora_path):
-    lora_path = hf_hub_download(repo_id="Paper99/sdxlUnstableDiffusers_v11", filename=lora_model_name, repo_type="model")
+    lora_path = hf_hub_download(repo_id="imagepipeline/xl_more_art-full_v1", filename=lora_model_name, repo_type="model")
     
 # global variable
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -33,7 +34,11 @@ STYLE_NAMES = list(styles.keys())
 DEFAULT_STYLE_NAME = "(No style)"
 
 # download PhotoMaker checkpoint to cache
-photomaker_ckpt = hf_hub_download(repo_id="TencentARC/PhotoMaker", filename="photomaker-v1.bin", repo_type="model")
+# photomaker_ckpt = hf_hub_download(repo_id="TencentARC/PhotoMaker", filename="photomaker-v1.bin", repo_type="model")
+photomaker_model_name = "photomaker-v1.bin"
+photomaker_ckpt = os.path.join(civitai_model_path, photomaker_model_name)
+if not os.path.exists(photomaker_ckpt):
+    photomaker_ckpt = hf_hub_download(repo_id="TencentARC/PhotoMaker", filename=photomaker_model_name, repo_type="model")
 
 pipe = PhotoMakerStableDiffusionXLPipeline.from_single_file(
     base_model_path, 
@@ -140,7 +145,7 @@ def get_example():
 
 ### Description and style
 logo = r"""
-<center><img src='https://photo-maker.github.io/assets/logo.png' alt='PhotoMaker logo' style="width:80px; margin-bottom:10px"></center>
+
 """
 title = r"""
 <h1 align="center">PhotoMaker: Customizing Realistic Human Photos via Stacked ID Embedding</h1>
@@ -148,7 +153,7 @@ title = r"""
 """
 
 description = r"""
-<b>Official 🤗 Gradio demo</b> for <a href='https://github.com/TencentARC/PhotoMaker' target='_blank'><b>PhotoMaker: Customizing Realistic Human Photos via Stacked ID Embedding</b></a>.<br>
+Official 🤗 Gradio demo for PhotoMaker: Customizing Realistic Human Photos via Stacked ID Embedding.
 <br>
 For photo-realistic generation, you could use our other gradio demo [PhotoMaker](https://huggingface.co/spaces/TencentARC/PhotoMaker).
 <br>
@@ -161,7 +166,7 @@ For photo-realistic generation, you could use our other gradio demo [PhotoMaker]
 
 article = r"""
 
-If PhotoMaker is helpful, please help to ⭐ the <a href='https://github.com/TencentARC/PhotoMaker' target='_blank'>Github Repo</a>. Thanks! 
+If PhotoMaker is helpful, please help to ⭐ the Github Repo. Thanks! 
 [![GitHub Stars](https://img.shields.io/github/stars/TencentARC/PhotoMaker?style=social)](https://github.com/TencentARC/PhotoMaker)
 ---
 📝 **Citation**
@@ -182,7 +187,7 @@ Apache-2.0 LICENSE. Please refer to the [LICENSE file](https://huggingface.co/Te
 
 📧 **Contact**
 <br>
-If you have any questions, please feel free to reach me out at <b>zhenli1031@gmail.com</b>.
+If you have any questions, please feel free to reach me out at zhenli1031@gmail.com.
 """
 
 tips = r"""
