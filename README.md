@@ -106,7 +106,10 @@ from huggingface_hub import hf_hub_download
 photomaker_path = hf_hub_download(repo_id="TencentARC/PhotoMaker", filename="photomaker-v1.bin", repo_type="model")
 ```
 
-You can also choose to download manually from this [url](https://huggingface.co/TencentARC/PhotoMaker).
+You can also choose to download manually from these:
+ PhotoMaker:[url](https://huggingface.co/TencentARC/PhotoMaker).
+ sdxlUnstableDiffusers_v11:[url](https://huggingface.co/frankjoshua/sdxlUnstableDiffusers_v11/resolve/main/sdxlUnstableDiffusers_v11.safetensors?download=true).
+xl_more_art-full_v1:[url](https://huggingface.co/hannabaker/sdxl/resolve/main/xl_more_art-full_v1.safetensors?download=true).
 
 # 💻 How to Test
 
